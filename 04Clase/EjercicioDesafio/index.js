@@ -1,6 +1,6 @@
-const { clear } = require('console');
 const http = require('http'); //Importo modulo http
 const PORT = 3008
+
 const server = http.createServer((request, response) => {
     let respuesta = ""
     let statusCode = 200;
