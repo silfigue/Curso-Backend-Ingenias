@@ -30,9 +30,15 @@ app.get('/cursos/nombre/:nombre', (req, res) => {
     if (param !== '') {
         let result = []
     
-        result = cursos.filter((curso) => 
+        /*result = cursos.filter((curso) => 
             curso.nombre.includes(param)  
-        )
+        )*/
+        for (let curso of cursos) {
+            if (curso.nombre.toLowerCase().includes(param.toLowerCase())) {
+                result.push(curso)
+            
+            }
+        }
         result.length > 0 ? 
         res.json(result) :
         res.status(404).json({ id: 'Error', descripcion: 'No se encontraron coincidencias.' })
