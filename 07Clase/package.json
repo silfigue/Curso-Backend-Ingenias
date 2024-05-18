@@ -1,0 +1,15 @@
+{
+  "name": "07clase",
+  "version": "1.0.0",
+  "description": "1- Inicializamos el proyecto con npm init \r 2 - Instalamos las dependencias express con el siguiente comando:\r express --> npm i express || npm install express\r 3- Creamos el script en el archivo package.json para luego ejecutar el proyecto:\r  \"scripts\": {\r     \"start\": \"node index.js \",",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Silvina Figueroa",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
