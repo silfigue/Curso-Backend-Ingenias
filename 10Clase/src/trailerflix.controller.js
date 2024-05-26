@@ -42,14 +42,15 @@ function obtenerTrailerPorId(id, DB) {
     }
 }
 
-const obtenerCategoria = (cat, DB)=>{
-    const categoriasEncontradas = DB.filter(c => c.categoria.toLowerCase().includes(cat)); // filtro por categoria
-    if (categoriasEncontradas.length > 0) {
-        return categoriasEncontradas;
+ const obtenerCategorias = (cat, DB) => {
+    const categorias = DB.filter(n => n.categoria.toLowerCase().includes(cat));
+    if (categorias.length > 0) {
+        return categorias;
     } else {
-        return { mensaje: `No se encontraron resultados para esa categoria.` };
+        return { mensaje: `No se encontraron resultados.` };
     }
 }
+  
 
 const obtenerTitulo = (title, DB) => {
     const titleEncontrado = DB.filter(n => n.titulo.toLowerCase().includes(title));
@@ -72,4 +73,4 @@ const obtenerReparto = (param, DB) => {
     return result;
 }
 
-module.exports = { leerTrailerflix, obtenerTrailerPorId, obtenerTitulo, obtenerCategoria, obtenerReparto };
+module.exports = { leerTrailerflix, obtenerTrailerPorId, obtenerCategorias, obtenerTitulo, obtenerReparto };

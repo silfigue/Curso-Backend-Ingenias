@@ -7,7 +7,7 @@ const app = express();
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
-const { leerTrailerflix, obtenerTrailerPorId, obtenerTitulo, obtenerCategoria, obtenerReparto } = require('./src/trailerflix.controller');
+const { leerTrailerflix, obtenerTrailerPorId, obtenerCategorias, obtenerTitulo, obtenerReparto } = require('./src/trailerflix.controller');
 
 const PORT = process.env.PORT || 3000;
 
@@ -34,8 +34,9 @@ app.get('/api/titulo/:title', (req, res) => {
 // Esta ruta recibe el nombre de una categoria (serie o pelicula) y devuelve un listado correspondiente a esa categoria
 app.get('/api/categoria/:cat', (req, res) => {
     const cat = req.params.categoria.toLowerCase();
-    const result = obtenerCategoria(cat, DB)
-    res.send(result)
+    const data = obtenerCategorias(cat, DB);
+    res.send(data)
+    
 })
 
 // Esta ruta recibe el nombre de un actor o actriz y devuelve las películas en las que ha participado. junto con el reparto de cada película.
@@ -48,7 +49,7 @@ app.get('/api/reparto/:act', (req, res) => {
         result.length > 0 ? res.json(result) :
         res.status(404).json({ id: 'Error', descripcion: 'Ups!!! No hay coincidencias encontradas :(' })
     }
-});
+})
 
 // Ruta para obtener el trailer de una película o serie por su id
 app.get('/api/trailer/:id', (req, res) => {
