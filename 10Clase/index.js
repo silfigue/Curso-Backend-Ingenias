@@ -33,7 +33,7 @@ app.get('/api/titulo/:title', (req, res) => {
 
 // Esta ruta recibe el nombre de una categoria (serie o pelicula) y devuelve un listado correspondiente a esa categoria
 app.get('/api/categoria/:cat', (req, res) => {
-    const cat = req.params.categoria.toLowerCase()
+    const cat = req.params.cat.trim().toLowerCase()
     const data = obtenerCategorias(cat, DB)
     res.send(data)
     
@@ -67,3 +67,4 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Servidor iniciado en el puerto http://localhost:${PORT}`);
 });
+
