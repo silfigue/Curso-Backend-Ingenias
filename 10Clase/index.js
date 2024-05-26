@@ -33,7 +33,7 @@ app.get('/api/titulo/:title', (req, res) => {
 
 // Esta ruta recibe el nombre de una categoria (serie o pelicula) y devuelve un listado correspondiente a esa categoria
 app.get('/api/categoria/:cat', (req, res) => {
-    const cat = req.params.categoria.trim().toLowerCase();
+    const cat = req.params.categoria.toLowerCase();
     const result = obtenerCategoria(cat, DB)
     res.send(result)
 })
