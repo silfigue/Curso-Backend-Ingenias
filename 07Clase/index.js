@@ -53,3 +53,4 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Servidor iniciado en el puerto http://localhost:${PORT}`);
 });
+
